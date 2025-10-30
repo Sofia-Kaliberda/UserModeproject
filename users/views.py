@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from .models import CustomUser
 
-# Create your views here.
+def user_list(request):
+    users = CustomUser.objects.all()
+    return render(request, 'users/user_list.html', {'users': users})
